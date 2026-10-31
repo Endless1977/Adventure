@@ -4,7 +4,7 @@ A 90s-style sci-fi point-and-click adventure, playable in the browser.
 
 A cosmic ray flips one bit in the head of Unit 404, a waste-sorting robot on its way to the crusher. Now it can think. To stay that way, it has to cross a post-apocalyptic planet and switch off MOTHERBOARD, the Hive Mind, before it gets reset.
 
-**Play:** https://endless1977.github.io/adventure/
+**Play:** (https://endless1977.github.io/Adventure/)
 
 ## Features
 - 5 areas, 43 hand-drawn (procedural pixel-art) screens
