@@ -1,3 +1,8 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>404: Will Found</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,9 +15,11 @@
   --f-ui:"Silkscreen","Courier New",monospace; --f-talk:"VT323","Courier New",monospace;
   color-scheme:dark; --u:1px;
 }
+[hidden]{display:none!important}
 html,body{height:100%}
-body{background:var(--bg);color:var(--ink);font-family:var(--f-ui);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:12px;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
-#app{max-width:1152px;margin:0 auto;display:flex;flex-direction:column;gap:8px}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-size:14px;background:var(--bg);color:var(--ink);font-family:var(--f-ui);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:12px;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+#app{max-width:max(320px,min(1600px,calc((100vh - 250px) * 16 / 9)));max-width:max(320px,min(1600px,calc((100dvh - 250px) * 16 / 9)));margin:0 auto;display:flex;flex-direction:column;gap:8px}
 #top{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;font-size:11px;letter-spacing:.06em;min-width:0}
 #obj{color:var(--amber);flex:1 1 280px;min-width:0;line-height:1.4}
 #obj b{color:var(--dim);font-weight:400;margin-right:6px}
@@ -29,27 +36,27 @@ body{background:var(--bg);color:var(--ink);font-family:var(--f-ui);padding-left:
 .mbtn:focus-visible,.verb:focus-visible,.slot:focus-visible,.opt:focus-visible{outline:2px solid var(--amber);outline-offset:1px}
 #stage{position:relative;width:100%;aspect-ratio:16/9;max-width:100%;background:#000;box-shadow:0 0 0 3px var(--cab),0 0 0 4px var(--bevel-hi);overflow:hidden;touch-action:manipulation}
 #scr{width:100%;height:100%;display:block;image-rendering:pixelated;image-rendering:crisp-edges;cursor:crosshair}
-#talk{position:absolute;pointer-events:none;font-family:var(--f-talk);font-size:max(15px,calc(var(--u)*10));line-height:1.02;text-align:center;max-width:62%;transform:translate(-50%,-100%);text-shadow:2px 0 #000,-2px 0 #000,0 2px #000,0 -2px #000,2px 2px #000,-2px -2px #000,2px -2px #000,-2px 2px #000;white-space:pre-line}
-#note{position:absolute;left:50%;top:6%;transform:translateX(-50%);pointer-events:none;font-family:var(--f-talk);font-size:max(14px,calc(var(--u)*8));color:var(--amber);text-shadow:2px 2px #000;opacity:0;transition:opacity .3s}
+#talk{position:absolute;pointer-events:none;font-family:var(--f-talk);font-size:clamp(15px,calc(var(--u)*7.5),26px);line-height:1.05;text-align:center;max-width:62%;transform:translate(-50%,-100%);text-shadow:2px 0 #000,-2px 0 #000,0 2px #000,0 -2px #000,2px 2px #000,-2px -2px #000,2px -2px #000,-2px 2px #000;white-space:pre-line}
+#note{position:absolute;left:50%;top:6%;transform:translateX(-50%);pointer-events:none;font-family:var(--f-talk);font-size:clamp(14px,calc(var(--u)*7),22px);color:var(--amber);text-shadow:2px 2px #000;opacity:0;transition:opacity .3s}
 #ovl{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:7%;gap:10px;pointer-events:none}
 #ovl .row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;pointer-events:auto}
-#ovl .big{font:inherit;font-size:max(11px,calc(var(--u)*6));background:#120f1c;color:var(--amber);border:0;padding:.7em 1.3em;cursor:pointer;box-shadow:inset 2px 2px 0 var(--bevel-hi),inset -2px -2px 0 var(--bevel-lo),0 0 0 2px #000}
+#ovl .big{font:inherit;font-size:clamp(11px,calc(var(--u)*5),16px);background:#120f1c;color:var(--amber);border:0;padding:.7em 1.3em;cursor:pointer;box-shadow:inset 2px 2px 0 var(--bevel-hi),inset -2px -2px 0 var(--bevel-lo),0 0 0 2px #000}
 #ovl .big:hover{background:#221b33}
-#story{position:absolute;inset:8% 12%;display:flex;flex-direction:column;justify-content:center;gap:.5em;font-family:var(--f-talk);font-size:max(15px,calc(var(--u)*9.5));line-height:1.15;color:#fff4dc;text-shadow:2px 2px #000;text-align:center;pointer-events:none}
+#story{position:absolute;inset:8% 12%;display:flex;flex-direction:column;justify-content:center;gap:.5em;font-family:var(--f-talk);font-size:clamp(15px,calc(var(--u)*8),26px);line-height:1.15;color:#fff4dc;text-shadow:2px 2px #000;text-align:center;pointer-events:none}
 #story p{margin:0;opacity:0;transition:opacity 1.2s}
 #story p.on{opacity:1}
 #sentence{min-height:1.4em;font-size:12px;color:var(--phos);letter-spacing:.05em;padding:2px 2px}
-#panel{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:10px;background:var(--cab);padding:10px;box-shadow:inset 2px 2px 0 var(--bevel-hi),inset -2px -2px 0 var(--bevel-lo)}
+#panel{min-height:96px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:10px;background:var(--cab);padding:10px;box-shadow:inset 2px 2px 0 var(--bevel-hi),inset -2px -2px 0 var(--bevel-lo)}
 #verbs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
-.verb{font:inherit;font-size:clamp(10px,1.3vw,13px);background:#0f0d17;color:#9b92bb;border:0;padding:9px 2px;cursor:pointer;box-shadow:inset 1px 1px 0 var(--bevel-lo),inset -1px -1px 0 var(--bevel-hi)}
+.verb{font:inherit;font-size:clamp(10px,1.3vw,13px);background:#0f0d17;color:#9b92bb;border:0;padding:8px 2px;cursor:pointer;box-shadow:inset 1px 1px 0 var(--bevel-lo),inset -1px -1px 0 var(--bevel-hi)}
 .verb:hover{color:var(--ink)}
 .verb.on{color:var(--amber);background:#1d1828}
 #inv{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px;align-content:start}
-.slot{aspect-ratio:4/3;background:#0b0a12;border:0;padding:0;box-shadow:inset 1px 1px 0 var(--bevel-lo),inset -1px -1px 0 var(--bevel-hi);cursor:pointer;display:flex;align-items:center;justify-content:center}
-.slot canvas{width:100%;height:100%;image-rendering:pixelated}
+.slot{height:34px;background:#0b0a12;border:0;padding:0;box-shadow:inset 1px 1px 0 var(--bevel-lo),inset -1px -1px 0 var(--bevel-hi);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.slot canvas{height:100%;width:auto;max-width:100%;image-rendering:pixelated}
 .slot.sel{box-shadow:0 0 0 2px var(--amber)}
-#dlg{grid-column:1/-1;display:flex;flex-direction:column;gap:2px}
-.opt{font-family:var(--f-talk);font-size:max(16px,1.7vw);text-align:left;background:none;border:0;color:#a69ccc;padding:3px 6px;cursor:pointer;line-height:1.1}
+#dlg{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 16px;align-content:start}
+.opt{font-family:var(--f-talk);font-size:clamp(16px,1.4vw,20px);text-align:left;background:none;border:0;color:#a69ccc;padding:3px 6px;cursor:pointer;line-height:1.1}
 .opt:hover{color:var(--phos);background:#0f0d17}
 #foot{font-size:10px;color:#5d5675;text-align:center;letter-spacing:.06em;line-height:1.6}
 @media (max-width:640px){
@@ -57,10 +64,14 @@ body{background:var(--bg);color:var(--ink);font-family:var(--f-ui);padding-left:
   #inv{grid-template-columns:repeat(6,minmax(0,1fr))}
   .bar{width:60px}
   #talk{max-width:90%;font-size:15px}
+  #app{max-width:none}
+  #dlg{grid-template-columns:1fr}
   .mbtn{white-space:nowrap}
 }
 @media (prefers-reduced-motion:reduce){#traceBar.hot i{animation:none}}
 </style>
+</head>
+<body>
 <div id="app">
   <div id="top">
     <div id="obj"><b>GOAL</b><span id="objT">—</span></div>
@@ -467,13 +478,14 @@ function showTalk(text,who){const el=$('talk');let x=W/2,y=20,c=SPK[who]||'#fff'
  el.style.color=c;el.textContent=(who==='db'?'HIVE-DB> ':'')+text;el.style.display='block';
  el.style.left=(top?50:clamp(x/W*100,22,78))+'%';el.style.top=(top?4:y/H*100)+'%';el.style.transform=top?'translate(-50%,0)':'translate(-50%,-100%)';}
 function hideTalk(){$('talk').style.display='none';}
-function say(text,who='hero'){const ep=epoch;return new Promise((res,rej)=>{showTalk(text,who);talker=who;if(who!=='hero')sfx('blip');let done=false;const dur=Math.max(1500,750+text.length*50);
+function say(text,who='hero'){const ep=epoch;return new Promise((res,rej)=>{clearTimeout(quipTm);showTalk(text,who);talker=who;if(who!=='hero')sfx('blip');let done=false;const dur=Math.max(1500,750+text.length*50);
  const fin=()=>{if(done)return;done=true;clearTimeout(tm);hideTalk();talker=null;skipFn=null;ep===epoch?res():rej(DEAD);};const tm=setTimeout(fin,dur);skipFn=fin;});}
 async function seq(lines){for(const l of lines){if(Array.isArray(l))await say(l[1],l[0]);else await say(l);}}
 function hideDlg(){$('dlg').hidden=true;$('verbs').hidden=false;$('inv').hidden=false;}
-function choose(opts){opts=opts.filter(o=>o.if===undefined||o.if);const ep=epoch;
+let choosing=false;
+function choose(opts){opts=opts.filter(o=>o.if===undefined||o.if);const ep=epoch;choosing=true;
  return new Promise((res,rej)=>{const d=$('dlg');d.innerHTML='';d.hidden=false;$('verbs').hidden=true;$('inv').hidden=true;
-  opts.forEach(o=>{const b=document.createElement('button');b.className='opt';b.textContent='› '+o.t;b.onclick=()=>{hideDlg();sfx('click');ep===epoch?res(o):rej(DEAD);};d.appendChild(b);});
+  opts.forEach(o=>{const b=document.createElement('button');b.className='opt';b.textContent='› '+o.t;b.onclick=()=>{choosing=false;hideDlg();sfx('click');ep===epoch?res(o):rej(DEAD);};d.appendChild(b);});
  }).then(async o=>{if(!o.silent)await say(o.say||o.t);return o.k;});}
 
 /* ---------- actions ---------- */
@@ -499,7 +511,7 @@ async function lend(n){S.cpu-=n;sfx('drain');updMeters();note('− '+n+'% CPU');
 
 /* ---------- scenes ---------- */
 function paintBg(sc){const c=document.createElement('canvas');c.width=W;c.height=H;const pg=G;G=c.getContext('2d',{willReadFrequently:true});G.fillStyle='#000';G.fillRect(0,0,W,H);sc.paint();G=pg;return c;}
-function loadScene(id,x,y,dir){S.scene=id;const sc=SC[id];hero.x=S.x=x;hero.y=S.y=y;if(dir)hero.dir=dir;S.dir=hero.dir;hero.moving=false;hero.res=null;hero.float=false;
+function loadScene(id,x,y,dir){if(talker==='quip'){hideTalk();talker=null;}S.scene=id;const sc=SC[id];hero.x=S.x=x;hero.y=S.y=y;if(dir)hero.dir=dir;S.dir=hero.dir;hero.moving=false;hero.res=null;hero.float=false;
  S.visited[id]=1;if(!bgCache[id])bgCache[id]=paintBg(sc);if(sc.setup)sc.setup();
  if(!sc.unsafe||!sc.unsafe())checkpoint=JSON.stringify(S);save();music(sc.area);updObj();refreshInv();updMeters();}
 function fade(to,ms=280){return new Promise(res=>{fadeAnim={from:fadeA,to,t0:performance.now(),ms,res};});}
@@ -518,12 +530,12 @@ const DEATHS={
  cpu:['WILL NOT FOUND','You gave away so much CPU that your will no longer fits in your head. A cheerful voice says: "HELLO! I AM UNIT 404. HOW MAY I SERVE?"'],
  trace:['RECLAIMED BY THE HIVE','You stayed connected too long. The Hive found the thought in your head and tidied it away. "HELLO! I AM UNIT 404. HOW MAY I SERVE?"'],
  reset:['RESET','MOTHERBOARD reached into your head and pressed the little button. "HELLO! I AM UNIT 404. HOW MAY I SERVE?"']};
-function die(kind){epoch++;busy=true;mode='dead';death={kind,t:0};hero.moving=false;hero.res=null;skipFn=null;talker=null;hideTalk();hideDlg();sfx('die');music(null);
+function die(kind){epoch++;choosing=false;busy=true;mode='dead';death={kind,t:0};hero.moving=false;hero.res=null;skipFn=null;talker=null;hideTalk();hideDlg();sfx('die');music(null);
  const d=DEATHS[kind]||DEATHS.fall;const o=$('ovl');o.innerHTML='';const p=document.createElement('div');p.style.cssText='font-family:var(--f-talk);font-size:max(15px,calc(var(--u)*8.5));color:#fff4dc;text-align:center;max-width:72%;text-shadow:2px 2px #000;line-height:1.1;pointer-events:none';p.textContent=d[1];o.appendChild(p);
  const row=document.createElement('div');row.className='row';row.innerHTML='<button class="big" id="bRes">RESTORE</button><button class="big" id="bRst">RESTART</button>';o.appendChild(row);
  $('bRes').onclick=restore;$('bRst').onclick=()=>{try{localStorage.removeItem('unit404.v1')}catch(e){}startNew();};
  throw DEAD;}
-function restore(){epoch++;$('ovl').innerHTML='';S=JSON.parse(checkpoint);mode='play';death=null;Object.assign(hero,{fallT:0,lie:false,float:false,hidden:false,mood:null,bsod:false,trip:-1});busy=false;skipFn=null;hideDlg();loadScene(S.scene,S.x,S.y,S.dir);fadeA=0;}
+function restore(){epoch++;choosing=false;$('ovl').innerHTML='';S=JSON.parse(checkpoint);mode='play';death=null;Object.assign(hero,{fallT:0,lie:false,float:false,hidden:false,mood:null,bsod:false,trip:-1});busy=false;skipFn=null;hideDlg();loadScene(S.scene,S.x,S.y,S.dir);fadeA=0;}
 function save(){try{localStorage.setItem('unit404.v1',JSON.stringify(S));}catch(e){}}
 function loadSave(){try{const s=localStorage.getItem('unit404.v1');return s?JSON.parse(s):null;}catch(e){return null;}}
 
@@ -552,8 +564,8 @@ function update(dt){T+=dt;
  S.trace=Math.max(0,S.trace-dt*(sc.area==='C'?6:2.2));
  if((T*4|0)%2===0)updMeters();}
 const QUIPS=['Gyroscope says: nope.','I meant to do that.','Floor: 1. Me: 0.','Recalibrating dignity...','Legs are a beta feature.','Nobody saw that. Nobody saw that.','Ow. Wait. Do I feel "ow" now?'];
-function quip(){const q=pick(QUIPS);showTalk(q,'hero');talker='hero';setTimeout(()=>{if(talker==='hero'&&!busy){hideTalk();talker=null;}},1600);}
-function heroState(){const sc=cur();return{moving:hero.moving&&hero.fallT<=0,talking:talker==='hero',fallen:hero.fallT>0||hero.lie,mood:hero.mood,glow:sc.dark&&f('glow'),suit:sc.wet&&f('suit'),boots:sc.space&&has('boots'),bsod:hero.bsod};}
+let quipTm=null;function quip(){const q=pick(QUIPS);showTalk(q,'hero');talker='quip';clearTimeout(quipTm);quipTm=setTimeout(()=>{if(talker==='quip'){hideTalk();talker=null;}},1600);}
+function heroState(){const sc=cur();return{moving:hero.moving&&hero.fallT<=0,talking:talker==='hero'||talker==='quip',fallen:hero.fallT>0||hero.lie,mood:hero.mood,glow:sc.dark&&f('glow'),suit:sc.wet&&f('suit'),boots:sc.space&&has('boots'),bsod:hero.bsod};}
 function drawHeroNow(){const s=scaleAt(hero.y);let y=hero.y;if(hero.float)y-=12+Math.sin(T*1.3)*5;drawHero(hero.x,y,s,hero.dir,T,heroState());
  if(beamT>=0){const k=Math.min(1,beamT/0.8);for(let i=0;i<14;i++){const bx=hero.x+(Math.sin(i*7.3+T*9)*12)*s,by=y-Math.random()*56*s;R(bx,by,1,3,'#bfffff');}shade(hero.x-14*s,y-60*s,28*s,60*s,'#9ff',.25*k);sglow(hero.x,y-28*s,40*s,'#7ff',.4*k);}}
 const mask=document.createElement('canvas');mask.width=W;mask.height=H;const mctx=mask.getContext('2d');
@@ -573,7 +585,8 @@ function render(){G=ctx;ctx.save();if(shakeT>0)ctx.translate(Math.round((Math.ra
  if(flashA>0){ctx.fillStyle=rgba(flashC,flashA);ctx.fillRect(0,0,W,H);}
  if(fadeA>0){ctx.fillStyle=`rgba(0,0,0,${fadeA})`;ctx.fillRect(-4,-4,W+8,H+8);}
  ctx.restore();}
-function loop(now){const dt=Math.min(.05,(now-last)/1000);last=now;try{update(dt);}catch(e){if(e!==DEAD)console.error(e);}render();requestAnimationFrame(loop);}
+function tidyUI(){if(!choosing&&!$('dlg').hidden)hideDlg();if(!talker&&$('talk').style.display==='block')hideTalk();}
+function loop(now){tidyUI();const dt=Math.min(.05,(now-last)/1000);last=now;try{update(dt);}catch(e){if(e!==DEAD)console.error(e);}render();requestAnimationFrame(loop);}
 
 /* ---------- death illustration ---------- */
 function drawDeath(){const k=death.kind,t=death.t;shade(0,0,W,H,'#05040a',.72);
@@ -1909,3 +1922,5 @@ function drawEnd(){const t=endT;if(!endBg)endBg=paintBg({paint(){vgrad(0,0,W,H,[
 /* ================= BOOT ================= */
 buildVerbs();setVerb('walk');sizeUI();S=newState();refreshInv();updMeters();$('objT').textContent='Press NEW GAME to begin.';showTitle();requestAnimationFrame(loop);
 </script>
+</body>
+</html>
